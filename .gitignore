@@ -1,0 +1,3 @@
+# Runtime / local state produced by optional Python hooks
+.claude/session-data/
+.claude/artifacts/
