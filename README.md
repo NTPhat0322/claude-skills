@@ -2,10 +2,6 @@
 
 Repo cung cấp thư mục **`.claude/`** (skills, rules, commands, agents, hooks, …) để **copy vào project** và dùng trong **Claude Code**. Cấu trúc & cách dùng từng phần: **[`.claude/README.md`](.claude/README.md)**.
 
-Đây là bản port sang Claude Code của kit `cursor-skills` (thư mục `../cursor-skills` cạnh repo này) — cùng nội dung, dùng đúng cơ chế native của Claude Code: skills tự động phát hiện dưới `.claude/skills/`, slash command namespaced (`/ck:cook`), sub-agent dưới `.claude/agents/`, và hook Python đăng ký qua `.claude/settings.json` (đã kèm sẵn, không cần cấu hình thêm như Cursor).
-
-**Đã copy `.claude/` vào repo đích?** Làm **Checklist** (bước 1→6).
-
 ---
 
 ## Kit này dùng để làm gì?
