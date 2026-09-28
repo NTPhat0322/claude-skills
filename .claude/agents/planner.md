@@ -76,7 +76,24 @@ Mode: {Fast | Hard | Parallel | Two}
 
 ## Risks
 - {Risk}: {Mitigation}
+
+## Execution Log
+<!-- Filled by /ck:cook at the end of this phase — leave placeholders when planning -->
+
+### Errors Encountered
+- (not executed yet)
+
+### Root Cause
+- (not executed yet)
+
+### Resolution
+- (not executed yet)
+
+### Test Results After Fix
+- (not executed yet)
 ```
+
+Every phase file MUST end with the `## Execution Log` section and its four sub-headings, in this order. Do not omit or rename them.
 
 Rules for Steps:
 - **What, not how.** Describe the goal of each step, never the implementation.

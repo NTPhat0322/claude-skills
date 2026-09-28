@@ -55,8 +55,32 @@ For each `phase-XX-*.md` in order:
 2. Implement following codebase conventions
 3. Verify success criteria for the phase
 4. **If spec loaded**: `P1 coverage: {N}/{total} stories addressed this phase`
-5. Write (overwrite) `## Session Notes` in plan.md, then mark phase complete `- [x] Phase N: {name}`
-6. Report what was done
+5. Fill `## Execution Log` at the end of the phase file (see **Phase Log** below) — **mandatory, a phase is not complete without it**
+6. Write (overwrite) `## Session Notes` in plan.md, then mark phase complete `- [x] Phase N: {name}`
+7. Report what was done, including the Phase Log
+
+**Phase Log** (overwrite the placeholders; create the section if the phase file lacks it). Always all four sub-headings, in this order:
+
+```markdown
+## Execution Log
+
+### Errors Encountered
+- {build/test/runtime error, with exact message} — or "None"
+
+### Root Cause
+- {root cause for each error above} — or "N/A"
+
+### Resolution
+- {fix applied for each error, files touched} — or "N/A"
+
+### Test Results After Fix
+- {command run} → {pass/fail counts, or build result}
+```
+
+Rules:
+- One entry per error; keep Errors / Root Cause / Resolution aligned by order.
+- Include errors surfaced later by Step 3 (tester/debugger) or Step 4 (code-reviewer) — append them to the log of the phase they belong to.
+- `Test Results After Fix` must come from a command actually run this session. If tests were skipped (`--fast` / `--no-test`), write the build/verification command used and state `test: skipped`. Never write a result you did not observe.
 
 **Session Notes template** (overwrite, never append):
 
