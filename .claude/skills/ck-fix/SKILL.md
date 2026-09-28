@@ -76,11 +76,12 @@ Spawn **`code-reviewer`**: correctness, security, regressions, code quality.
 
 **`project-manager`** (skip `--quick`): sync plan progress if bug was tracked.
 **`docs-manager`** (skip `--quick`): update docs if fix changes a public contract.
-**`git-manager`** (always): conventional commit + ask to push.
+**`git-manager`** (always): suggest a branch name + conventional commit message. **Never run git write commands** (branch, add, commit, push) — the user commits manually.
 
 ```
-// git-manager → fix(auth): add null guard on req.user before validate
-//            → Push to remote? [y/N]
+// git-manager → Suggested branch: fix/auth-null-user-guard
+//            → Suggested commit: fix(auth): add null guard on req.user before validate
+//            → Nothing committed — run the commands yourself if you agree
 ```
 
 ---
@@ -94,4 +95,4 @@ Spawn **`code-reviewer`**: correctness, security, regressions, code quality.
 | `code-reviewer`   | 3    | Standard, `--hard` (skip for `--quick`) |
 | `project-manager` | 4    | Standard, `--hard` (skip for `--quick`) |
 | `docs-manager`    | 4    | Standard, `--hard` (skip for `--quick`) |
-| `git-manager`     | 4    | Always (mandatory) |
+| `git-manager`     | 4    | Always (mandatory, suggest-only) |

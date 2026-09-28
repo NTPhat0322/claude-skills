@@ -24,7 +24,7 @@ LOW:     Glob (broad search), WebSearch (external docs)
    - Try a different approach rather than debugging deeper
    - Use `debugger` for structured root cause analysis
 4. Keep explanations to 1-2 sentences between code blocks
-5. Commit working increments — don't batch everything into one giant change
+5. Keep changes in small working increments — suggest a commit message for each, but never commit yourself
 
 ## Anti-Patterns
 

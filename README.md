@@ -6,7 +6,7 @@ Repo cung cấp thư mục **`.claude/`** (skills, rules, commands, agents, hook
 
 ## Kit này dùng để làm gì?
 
-Thay vì bảo Claude "code tính năng X" và nhận về kết quả không rõ ràng, kit này ép quy trình đi qua các bước có kiểm soát — **plan → code → test → review → commit** — với sub-agent chuyên trách từng bước, để bạn luôn biết Claude đang ở bước nào và có thể can thiệp.
+Thay vì bảo Claude "code tính năng X" và nhận về kết quả không rõ ràng, kit này ép quy trình đi qua các bước có kiểm soát — **plan → code → test → review → gợi ý commit** — với sub-agent chuyên trách từng bước, để bạn luôn biết Claude đang ở bước nào và có thể can thiệp.
 
 **Luồng pipeline `ck` ví dụ:**
 
@@ -14,7 +14,7 @@ Thay vì bảo Claude "code tính năng X" và nhận về kết quả không r�
 /ck:brainstorm → spec.md
 /ck:plan --hard spec.md → plans/{slug}/plan.md + phase-01.md, phase-02.md, ...
 /ck:cook plans/{slug}/plan.md → code từng phase, tự gọi tester + code-reviewer + git-manager
-/ck:fix (khi có bug) → scout (thu thập bằng chứng) → debugger (chẩn đoán + fix) → review → commit
+/ck:fix (khi có bug) → scout (thu thập bằng chứng) → debugger (chẩn đoán + fix) → review → gợi ý commit
 ```
 
 Mỗi lệnh có **mode**: `--fast` / `--quick` (bỏ qua test/review, làm nhanh), `--hard` (bắt buộc người duyệt, không auto-approve), mặc định **Standard** (tự approve nếu điểm review ≥ 9.5 và 0 lỗi CRITICAL).
@@ -23,7 +23,7 @@ Mỗi lệnh có **mode**: `--fast` / `--quick` (bỏ qua test/review, làm nhan
 - `planner`, `plan-reviewer`, `researcher` — dùng trong `/ck:plan`
 - `scout`, `debugger` — dùng trong `/ck:fix`
 - `tester`, `code-reviewer` — dùng trong cả `/ck:cook` và `/ck:fix`
-- `project-manager`, `docs-manager`, `git-manager` — bộ ba "finalize" dùng chung ở bước cuối mọi pipeline (cập nhật plan, cập nhật docs, commit git)
+- `project-manager`, `docs-manager`, `git-manager` — bộ ba "finalize" dùng chung ở bước cuối mọi pipeline (cập nhật plan, cập nhật docs, gợi ý tên branch + nội dung commit — `git-manager` **không bao giờ tự commit**, bạn tự chạy lệnh git)
 
 **Hooks tự động** (`.claude/hooks/*.py`, đăng ký sẵn trong `settings.json`) chạy theo sự kiện Claude Code thật, không phải do model tự quyết: `privacy_block.py` chặn đọc file secrets, `build_check.py` tự build/type-check sau khi sửa file, `simplify_gate.py` tự kích hoạt skill dọn code khi edit quá nhiều, cùng các hook lưu/nạp trạng thái phiên. Chi tiết đầy đủ: **[`.claude/hooks/README.md`](.claude/hooks/README.md)**.
 

@@ -172,7 +172,7 @@ Success criteria:  {N}/{total} verifiable
 Uncovered P1:      {list any, or "none"}
 ```
 
-**`git-manager`** (always): conventional commits → ask to push.
+**`git-manager`** (always): suggest a branch name + conventional commit messages. **Never run git write commands** (branch, add, commit, push) — the user commits manually.
 
 ---
 
@@ -186,4 +186,4 @@ Uncovered P1:      {list any, or "none"}
 | `code-reviewer`   | 4    | Standard, `--hard` (skip for `--fast`) |
 | `project-manager` | 5    | Standard, `--hard` (skip for `--fast`) |
 | `docs-manager`    | 5    | Standard, `--hard` (skip for `--fast`) |
-| `git-manager`     | 5    | Always (mandatory) |
+| `git-manager`     | 5    | Always (mandatory, suggest-only) |

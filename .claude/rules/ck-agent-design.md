@@ -8,5 +8,5 @@ Design rules for agent definitions under `.claude/agents/`.
 - **Tool list = what it actually uses.** No `Write` if it never writes. No shell if it only reads.
 - **Check before creating.** The finalize trio (project-manager, docs-manager, git-manager) and code-reviewer are shared — never duplicate them.
 - **Model tiering:** use cheaper models for bookkeeping (scout, git-manager, docs-manager, project-manager); stronger models for reasoning (debugger, tester, code-reviewer, planner, plan-reviewer).
-- **Every output agent defines pass/fail.** Tests report results. Commits confirm staged files. Reviews state verdict explicitly.
+- **Every output agent defines pass/fail.** Tests report results. Git suggestions list the exact files per commit. Reviews state verdict explicitly.
 - **Challenge existence.** Can the main agent handle it inline? What is the blast radius if it fails mid-pipeline?
